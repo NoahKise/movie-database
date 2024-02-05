@@ -1,0 +1,11 @@
+@model MovieDatabase.Models.Actor
+@using MovieDatabase.Models
+@using System.Collections.Generic;
+
+<h2>Actor Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<img height="400rem" src="@Html.DisplayFor(model => model.UrlImage)" alt="movie poster" />
+
+<p>@Html.ActionLink("Edit actor", "Edit", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Delete Actor", "Delete", new { id = Model.ActorId })</p>

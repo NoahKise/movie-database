@@ -5,21 +5,44 @@ body {
 
 #actorIcon {
     filter: invert(100%);
-    width: 13vw;
-    height: 13vw;
+    width: 8vw;
+    height: 7vw;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+#actorIcon:hover {
+    transform: scale(1.3);
+    transition: 1s;
+}
+
+#filmIcon:hover {
+    transform: scale(1.3);
+    transition: 1s;
 }
 
 #filmIcon {
     margin-top: auto;
     margin-bottom: auto;
-    width: 13vw;
-    height: 13vw;
+    width: 8vw;
+    height: 7vw;
+}
+
+#headerIcons {
+    display: flex;
+    flex-direction: column;
 }
 
 #textLogo {
     height: 18vw;
+    filter: brightness(100);
+
+}
+
+#cowLogo {
+    height: 17vw;
+    width: 17vw;
+    filter: brightness(100);
 }
 
 #navbar {
