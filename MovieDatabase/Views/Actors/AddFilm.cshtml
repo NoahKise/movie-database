@@ -1,0 +1,17 @@
+@model MovieDatabase.Models.Actor
+
+<h2>Add a Film</h2>
+
+<h4>Add a film to @Model.Name</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ActorId)
+
+    @Html.Label("Select Film")
+    @Html.DropDownList("FilmId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

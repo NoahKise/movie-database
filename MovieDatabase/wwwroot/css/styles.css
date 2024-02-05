@@ -12,13 +12,13 @@ body {
 }
 
 #actorIcon:hover {
-    transform: scale(1.3);
-    transition: 1s;
+    transform: scale(1.2);
+    transition: .2s;
 }
 
 #filmIcon:hover {
-    transform: scale(1.3);
-    transition: 1s;
+    transform: scale(1.2);
+    transition: .2s;
 }
 
 #filmIcon {
@@ -26,25 +26,53 @@ body {
     margin-bottom: auto;
     width: 8vw;
     height: 7vw;
+}
+
+.helperLink {
     position: relative;
     display: inline-block;
 }
 
-#filmIcon .tooltiptext {
+.helperLink .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    font-size: 2vw;
+    width: fit-content;
     background-color: white;
     color: black;
     text-align: center;
-    padding: 5px 0;
+    padding: 3px;
     border-radius: 6px;
-
-    /* Position the tooltip text - see examples below! */
+    top: 30%;
+    left: 105%;
     position: absolute;
     z-index: 1;
 }
 
-#filmIcon:hover .tooltiptext {
+.helperLink:hover .tooltiptext {
+    visibility: visible;
+}
+
+.helperLinkLeft {
+    position: relative;
+    display: inline-block;
+}
+
+.helperLinkLeft .tooltiptext {
+    visibility: hidden;
+    font-size: 2vw;
+    width: fit-content;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 3px;
+    border-radius: 6px;
+    top: 30%;
+    right: 105%;
+    position: absolute;
+    z-index: 1;
+}
+
+.helperLinkLeft:hover .tooltiptext {
     visibility: visible;
 }
 

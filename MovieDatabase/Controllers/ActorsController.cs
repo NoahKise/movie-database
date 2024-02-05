@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MovieDatabase.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MovieDatabase.Controllers;
 
@@ -70,4 +71,26 @@ public class ActorsController : Controller
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+
+    public ActionResult AddFilm(int id)
+    {
+        Actor thisActor = _db.Actors.FirstOrDefault(actor => actor.ActorId == id);
+        ViewBag.FilmId = new SelectList(_db.Films, "FilmId", "Name");
+        return View(thisActor);
+    }
+
+    [HttpPost]
+    public ActionResult AddFilm(Actor actor, int filmId)
+    {
+#nullable enable
+        ActorFilm? joinEntity = _db.ActorFilms.FirstOrDefault(join => (join.FilmId == filmId && join.ActorId == actor.ActorId));
+#nullable disable
+        if (joinEntity == null && filmId != 0)
+        {
+            _db.ActorFilms.Add(new ActorFilm() { FilmId = filmId, ActorId = actor.ActorId });
+            _db.SaveChanges();
+        }
+        return RedirectToAction("Details", new { id = actor.ActorId });
+    }
+
 }
