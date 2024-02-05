@@ -11,6 +11,24 @@
 <h3>@Html.DisplayNameFor(model => model.Director): @Html.DisplayFor(model => model.Director)</h3>
 <h3>MPA Rating: @Model.MpaRating</h3>
 
+
+@if (@Model.JoinEntities.Count == 0)
+{
+    <p>There are no actors added to this film yet.</p>
+}
+else
+{
+    <h4>Cast:</h4>
+    <ul>
+    @foreach (ActorFilm join in Model.JoinEntities)
+        {
+            <li>@join.Actor.Name</li>
+        }
+    </ul>
+}
+
+...
+<p>@Html.ActionLink("Add an actor", "AddActor", new { id = Model.FilmId })</p>
 <p>@Html.ActionLink("Edit film", "Edit", new { id = Model.FilmId })</p>
 <p>@Html.ActionLink("Delete film", "Delete", new { id = Model.FilmId })</p>
 <p>@Html.ActionLink("Back to movie list", "Index")</p>

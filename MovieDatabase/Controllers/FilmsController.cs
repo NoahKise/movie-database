@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MovieDatabase.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MovieDatabase.Controllers;
 
@@ -35,9 +36,8 @@ public class FilmsController : Controller
     public ActionResult Details(int id)
     {
         Film thisFilm = _db.Films
-        // .Include(film => film.Actors)
-        // .ThenInclude(actor => actor.JoinEntities)
-        // .ThenInclude(join => join.?ActorFilm?)
+        .Include(film => film.JoinEntities)
+        .ThenInclude(join => join.Actor)
         .FirstOrDefault(film => film.FilmId == id);
         return View(thisFilm);
     }
@@ -65,5 +65,24 @@ public class FilmsController : Controller
         _db.Films.Remove(thisFilm);
         _db.SaveChanges();
         return RedirectToAction("Index");
+    }
+    public ActionResult AddActor(int id)
+    {
+        Film thisFilm = _db.Films.FirstOrDefault(films => films.FilmId == id);
+        ViewBag.ActorId = new SelectList(_db.Actors, "ActorId", "Name");
+        return View(thisFilm);
+    }
+    [HttpPost]
+    public ActionResult AddActor(Film film, int actorId)
+    {
+#nullable enable
+        ActorFilm? joinEntity = _db.ActorFilms.FirstOrDefault(join => (join.ActorId == actorId && join.FilmId == film.FilmId));
+#nullable disable
+        if (joinEntity == null && actorId != 0)
+        {
+            _db.ActorFilms.Add(new ActorFilm() { ActorId = actorId, FilmId = film.FilmId });
+            _db.SaveChanges();
+        }
+        return RedirectToAction("Details", new { id = film.FilmId });
     }
 }

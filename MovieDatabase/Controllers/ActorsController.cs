@@ -36,6 +36,8 @@ public class ActorsController : Controller
     public ActionResult Details(int id)
     {
         Actor thisActor = _db.Actors
+        .Include(actor => actor.JoinEntities)
+        .ThenInclude(join => join.Film)
        .FirstOrDefault(actor => actor.ActorId == id);
         return View(thisActor);
     }

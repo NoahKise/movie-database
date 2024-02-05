@@ -7,6 +7,21 @@
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <img height="400rem" src="@Html.DisplayFor(model => model.UrlImage)" alt="movie poster" />
 
+@if (@Model.JoinEntities.Count == 0)
+{
+    <p>This actor is not in any films yet</p>
+}
+else
+{
+    <h4>This actor is in the following movies:</h4>
+    <ul>
+    @foreach (ActorFilm join in Model.JoinEntities)
+        {
+            <li>Film: @join.Film.Name</li>
+        }
+    </ul>
+}
+
 <p>@Html.ActionLink("Edit actor", "Edit", new { id = Model.ActorId })</p>
 <p>@Html.ActionLink("Cancel Actor", "Delete", new { id = Model.ActorId })</p>
 <p>@Html.ActionLink("Back list of Actors", "Index")</p>
