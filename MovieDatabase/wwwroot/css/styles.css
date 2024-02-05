@@ -1,0 +1,53 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#actorIcon {
+    filter: invert(100%);
+    width: 13vw;
+    height: 13vw;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#filmIcon {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 13vw;
+    height: 13vw;
+}
+
+#textLogo {
+    height: 18vw;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headerIconLink {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#curtains {
+    display: block;
+    width: 80vw;
+    height: 38vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -37.5vw;
+    z-index: 1;
+}
+
+#homeGif {
+    display: block;
+    width: 68vw;
+    margin-left: auto;
+    margin-right: auto;
+}

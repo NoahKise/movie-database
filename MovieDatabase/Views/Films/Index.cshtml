@@ -1,0 +1,15 @@
+@using MovieDatabase.Models;
+
+<h1>Films</h1>
+@if (@Model.Count == 0)
+{
+    <h3>No movies have been added yet!</h3>
+}
+<ul>
+    @foreach (Film film in Model)
+    {
+        <li>@Html.ActionLink($"{film.Name}", "Details", new { id = film.FilmId })</li>
+    }
+</ul>
+
+<p>@Html.ActionLink("Add new film", "Create")</p>

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MovieDatabase.Models;
 
 public class Film
@@ -8,5 +10,6 @@ public class Film
     public int Rating { get; set; }
     public string Director { get; set; }
     public string UrlImage { get; set; }
-    //List<Actor> Actors { get; set; }
+    public List<Actor> Actors { get; set; }
+    public List<ActorFilm> JoinEntities { get; }
 }

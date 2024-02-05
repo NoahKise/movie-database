@@ -1,0 +1,11 @@
+@model MovieDatabase.Models.Film
+@using MovieDatabase.Models
+@using System.Collections.Generic;
+
+<h2>Movie Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<img src="@Html.DisplayFor(model => model.UrlImage)" alt="movie poster" />
+<h3>@Html.DisplayNameFor(model => model.ReleaseDate): @Html.DisplayFor(model => model.ReleaseDate)</h3>
+<h3>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)</h3>
+<h3>@Html.DisplayNameFor(model => model.Director): @Html.DisplayFor(model => model.Director)</h3>
