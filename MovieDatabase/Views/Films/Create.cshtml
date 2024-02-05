@@ -10,9 +10,8 @@
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
     <br />
-    <label for="date">Enter the Release Date</label>
-    <input id="date" name="date" type="date" required>
-
+    @Html.LabelFor(model => model.ReleaseDate)
+    @Html.TextBoxFor(model => model.ReleaseDate, new { @type = "date" })
     <br />
     @Html.LabelFor(model => model.Rating)
     @Html.TextBoxFor(model => model.Rating)
@@ -28,3 +27,5 @@
     <br />
     <input type="submit" value="Add new movie" />
 }
+<!-- <label for="releaseDate">Enter the Release Date</label>
+    <input type="date" asp-for="ReleaseDate" /> -->

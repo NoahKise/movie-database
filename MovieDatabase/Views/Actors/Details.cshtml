@@ -8,4 +8,5 @@
 <img height="400rem" src="@Html.DisplayFor(model => model.UrlImage)" alt="movie poster" />
 
 <p>@Html.ActionLink("Edit actor", "Edit", new { id = Model.ActorId })</p>
-<p>@Html.ActionLink("Delete Actor", "Delete", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Cancel Actor", "Delete", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Back list of Actors", "Index")</p>

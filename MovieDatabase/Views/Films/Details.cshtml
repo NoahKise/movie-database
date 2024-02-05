@@ -6,10 +6,11 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <img height="400rem" src="@Html.DisplayFor(model => model.UrlImage)" alt="movie poster" />
-<h3>@Html.DisplayNameFor(model => model.ReleaseDate): @Html.DisplayFor(model => model.ReleaseDate)</h3>
+<h3>Release Date: @Model.ReleaseDate.ToString("d")</h3>
 <h3>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)</h3>
 <h3>@Html.DisplayNameFor(model => model.Director): @Html.DisplayFor(model => model.Director)</h3>
-<h3>@Html.DisplayNameFor(model => model.MpaRating): @Html.DisplayFor(model => model.MpaRating)</h3>
+<h3>MPA Rating: @Model.MpaRating</h3>
 
 <p>@Html.ActionLink("Edit film", "Edit", new { id = Model.FilmId })</p>
 <p>@Html.ActionLink("Delete film", "Delete", new { id = Model.FilmId })</p>
+<p>@Html.ActionLink("Back to movie list", "Index")</p>

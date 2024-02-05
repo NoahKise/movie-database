@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace MovieDatabase.Models;
 
@@ -6,7 +7,7 @@ public class Film
 {
     public int FilmId { get; set; }
     public string Name { get; set; }
-    public string ReleaseDate { get; set; }
+    public DateTime ReleaseDate { get; set; }
     public int Rating { get; set; }
     public string MpaRating { get; set; }
     public string Director { get; set; }

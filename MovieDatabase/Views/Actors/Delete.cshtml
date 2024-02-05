@@ -1,11 +1,10 @@
 @model MovieDatabase.Models.Actor
 
-<h2>Are you sure you want to delete this actor?</h2>
+<h2>Are you sure you want to Cancel "@Model.Name"?</h2>
 
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayNameFor(model => model.Name)
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" />
+    <input type="submit" value="Cancel" />
 }
 
 <p>@Html.ActionLink("Back to actor list", "Index")</p>

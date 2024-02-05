@@ -2,7 +2,7 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this Film: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Editing "@Model.Name"</h4>
 
 @using (Html.BeginForm())
 {
@@ -11,9 +11,8 @@
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
     <br />
-    <label for="date">Enter the Release Date</label>
-    <input id="date" name="date" type="date">
-
+    @Html.LabelFor(model => model.ReleaseDate)
+    @Html.EditorFor(model => model.ReleaseDate, new { @type = "date" })
     <br />
     @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating)
