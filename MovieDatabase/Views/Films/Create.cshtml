@@ -10,14 +10,18 @@
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
     <br />
-    @Html.LabelFor(model => model.ReleaseDate)
-    @Html.TextBoxFor(model => model.ReleaseDate)
+    <label for="date">Enter the Release Date</label>
+    <input id="date" name="date" type="date" required>
+
     <br />
     @Html.LabelFor(model => model.Rating)
     @Html.TextBoxFor(model => model.Rating)
     <br />
     @Html.LabelFor(model => model.Director)
     @Html.TextBoxFor(model => model.Director)
+    <br />
+    @Html.LabelFor(model => model.MpaRating)
+    @Html.TextBoxFor(model => model.MpaRating)
     <br />
     @Html.LabelFor(model => model.UrlImage)
     @Html.TextBoxFor(model => model.UrlImage)

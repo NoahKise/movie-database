@@ -1,0 +1,33 @@
+@model MovieDatabase.Models.Film
+
+<h2>Edit</h2>
+
+<h4>Edit this Film: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FilmId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    <br />
+    <label for="date">Enter the Release Date</label>
+    <input id="date" name="date" type="date">
+
+    <br />
+    @Html.LabelFor(model => model.Rating)
+    @Html.EditorFor(model => model.Rating)
+    <br />
+    @Html.LabelFor(model => model.Director)
+    @Html.EditorFor(model => model.Director)
+    <br />
+    @Html.LabelFor(model => model.MpaRating)
+    @Html.EditorFor(model => model.MpaRating)
+    <br />
+    @Html.LabelFor(model => model.UrlImage)
+    @Html.EditorFor(model => model.UrlImage)
+    <br />
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to movie list", "Index")</p>

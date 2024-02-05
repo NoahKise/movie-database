@@ -41,4 +41,29 @@ public class FilmsController : Controller
         .FirstOrDefault(film => film.FilmId == id);
         return View(thisFilm);
     }
+    public ActionResult Edit(int id)
+    {
+        Film thisFilm = _db.Films.FirstOrDefault(film => film.FilmId == id);
+        return View(thisFilm);
+    }
+    [HttpPost]
+    public ActionResult Edit(Film film)
+    {
+        _db.Films.Update(film);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+    public ActionResult Delete(int id)
+    {
+        Film thisFilm = _db.Films.FirstOrDefault(film => film.FilmId == id);
+        return View(thisFilm);
+    }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Film thisFilm = _db.Films.FirstOrDefault(film => film.FilmId == id);
+        _db.Films.Remove(thisFilm);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
 }
