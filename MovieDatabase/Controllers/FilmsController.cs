@@ -85,4 +85,13 @@ public class FilmsController : Controller
         }
         return RedirectToAction("Details", new { id = film.FilmId });
     }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+        ActorFilm joinEntry = _db.ActorFilms.FirstOrDefault(entry => entry.ActorFilmId == joinId);
+        _db.ActorFilms.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
 }

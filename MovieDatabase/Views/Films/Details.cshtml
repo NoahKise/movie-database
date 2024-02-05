@@ -23,6 +23,11 @@ else
     @foreach (ActorFilm join in Model.JoinEntities)
         {
             <li>@join.Actor.Name</li>
+            @using (Html.BeginForm("DeleteJoin", "Films"))
+            {
+                @Html.Hidden("joinId", @join.ActorFilmId)
+                <input type="submit" value="Delete" />
+            }
         }
     </ul>
 }
