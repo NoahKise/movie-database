@@ -5,6 +5,7 @@ using MovieDatabase.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Threading.Tasks;
 
 namespace MovieDatabase.Controllers;
 
@@ -15,10 +16,17 @@ public class FilmsController : Controller
     {
         _db = db;
     }
-    public ActionResult Index()
+
+    public async Task<IActionResult> Index(string searchString)
     {
-        List<Film> model = _db.Films.ToList();
-        return View(model);
+        IQueryable<Film> model = from m in _db.Films
+                                 select m;
+
+        if (!String.IsNullOrEmpty(searchString))
+        {
+            model = model.Where(s => s.Name!.Contains(searchString));
+        }
+        return View(await model.OrderBy(e => e.Name).ToListAsync());
     }
 
     public ActionResult Create()

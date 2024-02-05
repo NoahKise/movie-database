@@ -1,5 +1,12 @@
 @using MovieDatabase.Models;
 
+<form asp-controller="Films" asp-action="Index">
+    <p>
+        <input type="text" name="SearchString" placeholder="name..." />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
 <h1>Films</h1>
 @if (@Model.Count == 0)
 {
