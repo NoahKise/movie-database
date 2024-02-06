@@ -1,4 +1,4 @@
-## Moofi
+# Moofi
 
 #### by Noah Kise, Ravin Fisher & Kim Robinson
 
@@ -21,6 +21,7 @@
 * Create TVShow Entity with relationship to Actor (and Genre?) Have streaming service as a property of TVShow
 * Checkbox if watched movie "Mark as seen"
 * CSS Styling - cards for detail pages?
+* Make API call on home page for giphy
 
 ## Known Bugs
 - in Edit Film, the 24 hr clock is displayed.
