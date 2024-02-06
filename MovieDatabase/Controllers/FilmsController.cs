@@ -37,6 +37,10 @@ public class FilmsController : Controller
     [HttpPost]
     public ActionResult Create(Film film)
     {
+        if (!ModelState.IsValid)
+        {
+            return View(film);
+        }
         _db.Films.Add(film);
         _db.SaveChanges();
         return RedirectToAction("Index");
@@ -101,5 +105,12 @@ public class FilmsController : Controller
         _db.ActorFilms.Remove(joinEntry);
         _db.SaveChanges();
         return RedirectToAction("Index");
+    }
+    public ActionResult MarkAsWatched(int id)
+    {
+        Film thisFilm = _db.Films.FirstOrDefault(films => films.FilmId == id);
+        thisFilm.IsWatched = true;
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = id });
     }
 }

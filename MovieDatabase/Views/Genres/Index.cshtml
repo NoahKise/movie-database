@@ -1,0 +1,11 @@
+@using MovieDatabase.Models;
+@model List<MovieDatabase.Models.Genre>
+
+<h2>All Genres</h2>
+
+<ul>
+    @foreach (Genre genre in Model)
+    {
+        <li>@genre.Name</li>
+    }
+</ul>

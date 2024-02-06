@@ -5,6 +5,7 @@
 @model MovieDatabase.Models.Film
 
 <h4>Add a Movie</h4>
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)
@@ -24,6 +25,9 @@
     <br />
     @Html.LabelFor(model => model.UrlImage)
     @Html.TextBoxFor(model => model.UrlImage)
+    <br />
+    @Html.LabelFor(model => model.IsWatched, "Watched")
+    @Html.CheckBoxFor(model => model.IsWatched, new { id = "IsWatchedCheckbox" })
     <br />
     <input type="submit" value="Add new movie" />
 }

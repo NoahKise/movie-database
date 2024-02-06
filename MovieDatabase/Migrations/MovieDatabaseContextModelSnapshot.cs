@@ -71,6 +71,12 @@ namespace MovieDatabase.Migrations
                     b.Property<string>("Director")
                         .HasColumnType("longtext");
 
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsWatched")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("MpaRating")
                         .HasColumnType("longtext");
 
@@ -88,7 +94,23 @@ namespace MovieDatabase.Migrations
 
                     b.HasKey("FilmId");
 
+                    b.HasIndex("GenreId");
+
                     b.ToTable("Films");
+                });
+
+            modelBuilder.Entity("MovieDatabase.Models.Genre", b =>
+                {
+                    b.Property<int>("GenreId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubGenre")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("GenreId");
+
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("MovieDatabase.Models.Actor", b =>
@@ -117,6 +139,17 @@ namespace MovieDatabase.Migrations
                     b.Navigation("Film");
                 });
 
+            modelBuilder.Entity("MovieDatabase.Models.Film", b =>
+                {
+                    b.HasOne("MovieDatabase.Models.Genre", "Genre")
+                        .WithMany("Films")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genre");
+                });
+
             modelBuilder.Entity("MovieDatabase.Models.Actor", b =>
                 {
                     b.Navigation("JoinEntities");
@@ -127,6 +160,11 @@ namespace MovieDatabase.Migrations
                     b.Navigation("Actors");
 
                     b.Navigation("JoinEntities");
+                });
+
+            modelBuilder.Entity("MovieDatabase.Models.Genre", b =>
+                {
+                    b.Navigation("Films");
                 });
 #pragma warning restore 612, 618
         }

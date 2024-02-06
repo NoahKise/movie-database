@@ -6,6 +6,25 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <img height="400rem" src="@Html.DisplayFor(model => model.UrlImage)" alt="movie poster" />
+<hr />
+@if (Model.IsWatched)
+{
+    <h3>Status: Watched</h3>
+}
+else
+{
+    <div id="notWatched">
+    <h3>Status: Not yet watched</h3>
+
+    @using (Html.BeginForm("MarkAsWatched", "Films", new { id = Model.FilmId }))
+        {
+            <label>Mark as </label>
+            <input type="submit" value="watched" />
+        }
+    </div>
+}
+<hr />
+
 <h3>Release Date: @Model.ReleaseDate.ToString("d")</h3>
 <h3>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)</h3>
 <h3>@Html.DisplayNameFor(model => model.Director): @Html.DisplayFor(model => model.Director)</h3>
