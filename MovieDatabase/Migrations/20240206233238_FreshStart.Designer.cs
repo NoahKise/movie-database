@@ -11,8 +11,8 @@ using MovieDatabase.Models;
 namespace MovieDatabase.Migrations
 {
     [DbContext(typeof(MovieDatabaseContext))]
-    [Migration("20240206173534_IsWatchedGenreIdToFilmsModelBugFix")]
-    partial class IsWatchedGenreIdToFilmsModelBugFix
+    [Migration("20240206233238_FreshStart")]
+    partial class FreshStart
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,7 @@ namespace MovieDatabase.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("UrlImage")
@@ -83,6 +84,7 @@ namespace MovieDatabase.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Rating")
@@ -116,6 +118,58 @@ namespace MovieDatabase.Migrations
                     b.HasKey("GenreId");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            GenreId = 1,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            GenreId = 2,
+                            Name = "Adventure"
+                        },
+                        new
+                        {
+                            GenreId = 3,
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            GenreId = 4,
+                            Name = "Crime"
+                        },
+                        new
+                        {
+                            GenreId = 5,
+                            Name = "Drama"
+                        },
+                        new
+                        {
+                            GenreId = 6,
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            GenreId = 7,
+                            Name = "Historical"
+                        },
+                        new
+                        {
+                            GenreId = 8,
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            GenreId = 9,
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            GenreId = 10,
+                            Name = "SciFi"
+                        });
                 });
 
             modelBuilder.Entity("MovieDatabase.Models.Actor", b =>
