@@ -144,3 +144,9 @@ a {
     font-family: boowie;
     font-size: 2.5vw;
 }
+
+.icon {
+    color: white;
+    filter: invert(100);
+    width: 3vw;
+}

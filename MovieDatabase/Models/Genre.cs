@@ -1,25 +1,18 @@
+using System.Collections.Generic;
+using System;
 
-@using MovieDatabase.Models;
-@model List<MovieDatabase.Models.Genre>
+namespace MovieDatabase.Models;
 
-<h2>Genre Details: </ h2 >
-< hr />
-< h3 > Films in this genre: </ h3 >
-
-@if(@Model.Films.Count == 0)
+public class Genre
 {
-    < p > There are no films added to this genre yet.</ p >
+    public int GenreId { get; set; }
+    public string Name { get; set; }
+    public string SubGenre { get; set; }
+    public List<Film> Films { get; set; }
+
+    public Genre(int genreId, string name)
+    {
+        GenreId = genreId;
+        Name = name;
+    }
 }
-else
-{
-    < ul >
-    @foreach(Film film in Model.Films)
-        {
-            < li > @Html.ActionLink($"{film.Name}", "Details", "Films", new { id = film.FilmId }) </ li >
-        }
-    </ ul >
-}
-...
-< p > @Html.ActionLink("Edit genre", "Edit", new { id = Model.GenreId }) </ p >
-< p > @Html.ActionLink("Delete genre", "Delete", new { id = Model.GenreId }) </ p >
-< p > @Html.ActionLink("Back to genre list", "Index") </ p >
