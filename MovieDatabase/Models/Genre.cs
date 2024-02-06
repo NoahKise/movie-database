@@ -9,10 +9,4 @@ public class Genre
     public string Name { get; set; }
     public string SubGenre { get; set; }
     public List<Film> Films { get; set; }
-
-    public Genre(int genreId, string name)
-    {
-        GenreId = genreId;
-        Name = name;
-    }
 }

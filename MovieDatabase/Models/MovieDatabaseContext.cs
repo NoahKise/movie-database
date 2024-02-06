@@ -23,16 +23,16 @@ public class MovieDatabaseContext : DbContext
     {
         var predefinedGenres = new List<Genre>
             {
-            new Genre(1, "Action"),
-            new Genre(2, "Adventure"),
-            new Genre(3, "Comedy"),
-            new Genre(4, "Crime"),
-            new Genre(5, "Drama"),
-            new Genre(6, "Fantasy"),
-            new Genre(7, "Historical"),
-            new Genre(8, "Horror"),
-            new Genre(9, "Romance"),
-            new Genre(10, "SciFi"),
+            new Genre { Name = "Action", GenreId = 1 },
+            new Genre { Name = "Adventure", GenreId = 2 },
+            new Genre { Name = "Comedy", GenreId = 3 },
+            new Genre { Name = "Crime", GenreId = 4 },
+            new Genre { Name = "Drama", GenreId = 5 },
+            new Genre { Name = "Fantasy", GenreId = 6 },
+            new Genre { Name = "Historical", GenreId = 7 },
+            new Genre { Name = "Horror", GenreId = 8  },
+            new Genre { Name = "Romance", GenreId = 9 },
+            new Genre { Name = "SciFi", GenreId = 10 },
         };
         modelBuilder.Entity<Genre>().HasData(predefinedGenres);
     }
