@@ -37,6 +37,10 @@ public class ActorsController : Controller
     [HttpPost]
     public ActionResult Create(Actor actor)
     {
+        if (!ModelState.IsValid)
+        {
+            return View(actor);
+        }
         _db.Actors.Add(actor);
         _db.SaveChanges();
         return RedirectToAction("Index");

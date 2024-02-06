@@ -5,6 +5,7 @@
 @model MovieDatabase.Models.Actor
 
 <h4>Add an Actor</h4>
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)

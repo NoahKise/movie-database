@@ -12,14 +12,18 @@
 - Delete the relationship of movie/actor
 - Search for actor by name
 - Search for film by name
+- See list of genres, film by genre
 
 ![sql relationship diagram](./MovieDatabase/wwwroot/assets/images/sql_design.png)
 
 ## Stretch Goals
-* Add model validation
+Done
+* Add model validation for Film.Name and Actor.Name
+* Property added-if movie has been watched, can set true at creation or update in Film Details
+
+TODO
 * Create Genre Entity with relationship to Film
 * Create TVShow Entity with relationship to Actor (and Genre?) Have streaming service as a property of TVShow
-* Checkbox if watched movie "Mark as seen"
 * CSS Styling - cards for detail pages?
 * Make API call on home page for giphy
 

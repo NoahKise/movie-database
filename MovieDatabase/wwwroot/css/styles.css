@@ -134,3 +134,13 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+
+@font-face {
+    font-family: boowie;
+    src: url(../assets/fonts/BOOWIE.ttf);
+}
+
+#navLinks p {
+    font-family: boowie;
+    font-size: 2.5vw;
+}

@@ -40,25 +40,12 @@ public class GenresController : Controller
         };
     }
 
-    // public ActionResult Details(int id)
-    // {
-    //     if (id == null)
-    //     {
-    //         return NotFound();
-    //     }
-    // }
-
-
-
+    public ActionResult Details(int id)
+    {
+        Genre thisGenre = _db.Genres
+        .Include(genre => genre.Films)
+        .FirstOrDefault(genre => genre.GenreId == id);
+        return View(thisGenre);
+    }
 }
 
-//    Action,
-//     Adventure,
-//     Comedy,
-//     Crime,
-//     Drama,
-//     Fantacy,
-//     Historical,
-//     Horror,
-//     Romance,
-//     SciFi,
