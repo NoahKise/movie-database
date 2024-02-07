@@ -30,6 +30,8 @@ else
 <h3>@Html.DisplayNameFor(model => model.Director): @Html.DisplayFor(model => model.Director)</h3>
 <h3>MPA Rating: @Model.MpaRating</h3>
 
+<h3>@Html.DisplayNameFor(model => model.Genre): @Html.DisplayFor(model => model.Genre.Name)</h3>
+
 
 @if (@Model.JoinEntities.Count == 0)
 {

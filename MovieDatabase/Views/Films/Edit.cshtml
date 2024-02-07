@@ -26,6 +26,9 @@
     @Html.LabelFor(model => model.UrlImage)
     @Html.EditorFor(model => model.UrlImage)
     <br />
+    @Html.LabelFor(model => model.Genre)
+    @Html.DropDownList("GenreId")
+    <br />
     <input type="submit" value="Save" />
 }
 

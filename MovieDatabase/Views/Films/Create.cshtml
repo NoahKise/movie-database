@@ -29,7 +29,8 @@
     @Html.LabelFor(model => model.IsWatched, "Watched")
     @Html.CheckBoxFor(model => model.IsWatched, new { id = "IsWatchedCheckbox" })
     <br />
+    @Html.LabelFor(model => model.Genre)
+    @Html.DropDownList("GenreId")
+    <br />
     <input type="submit" value="Add new movie" />
 }
-<!-- <label for="releaseDate">Enter the Release Date</label>
-    <input type="date" asp-for="ReleaseDate" /> -->

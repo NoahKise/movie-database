@@ -31,6 +31,7 @@ public class FilmsController : Controller
 
     public ActionResult Create()
     {
+        ViewBag.GenreId = new SelectList(_db.Genres, "GenreId", "Name");
         return View();
     }
 
@@ -48,6 +49,7 @@ public class FilmsController : Controller
     public ActionResult Details(int id)
     {
         Film thisFilm = _db.Films
+        .Include(film => film.Genre)
         .Include(film => film.JoinEntities)
         .ThenInclude(join => join.Actor)
         .FirstOrDefault(film => film.FilmId == id);
@@ -56,6 +58,7 @@ public class FilmsController : Controller
     public ActionResult Edit(int id)
     {
         Film thisFilm = _db.Films.FirstOrDefault(film => film.FilmId == id);
+        ViewBag.GenreId = new SelectList(_db.Genres, "GenreId", "Name");
         return View(thisFilm);
     }
     [HttpPost]
