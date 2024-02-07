@@ -20,9 +20,9 @@
 Done
 * Add model validation for Film.Name and Actor.Name
 * Property added-if movie has been watched, can set true at creation or update in Film Details
+* Create Seeded Genre Entity with 1:M relationship to Film
 
 TODO
-* Create Genre Entity with relationship to Film
 * Create TVShow Entity with relationship to Actor (and Genre?) Have streaming service as a property of TVShow
 * CSS Styling - cards for detail pages?
 * Make API call on home page for giphy
